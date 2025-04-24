@@ -124,6 +124,7 @@ const Footer = () => {
       </Box>
     );
   }, [ frontendLink ]);
+  
 
   const containerProps: HTMLChakraProps<'div'> = {
     as: 'footer',
