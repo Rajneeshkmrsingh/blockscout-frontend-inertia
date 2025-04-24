@@ -13,13 +13,11 @@ import useIssueUrl from 'lib/hooks/useIssueUrl';
 import { Link } from 'toolkit/chakra/link';
 import { Skeleton } from 'toolkit/chakra/skeleton';
 import { copy } from 'toolkit/utils/htmlEntities';
-import IconSvg from 'ui/shared/IconSvg';
 import { CONTENT_MAX_WIDTH } from 'ui/shared/layout/utils';
 import NetworkAddToWallet from 'ui/shared/NetworkAddToWallet';
 
 import FooterLinkItem from './FooterLinkItem';
 import IntTxsIndexingStatus from './IntTxsIndexingStatus';
-import getApiVersionUrl from './utils/getApiVersionUrl';
 
 const MAX_LINKS_COLUMNS = 4;
 
@@ -33,7 +31,7 @@ const Footer = () => {
       staleTime: Infinity,
     },
   });
-  const apiVersionUrl = getApiVersionUrl(backendVersionData?.backend_version);
+
   const issueUrl = useIssueUrl(backendVersionData?.backend_version);
 
   const BLOCKSCOUT_LINKS = [
@@ -59,20 +57,9 @@ const Footer = () => {
       icon: 'social/discord' as const,
       iconSize: '24px',
       text: 'Discord',
-      url: 'https://discord.gg/blockscout',
+      url: 'https://discord.gg',
     },
-    {
-      icon: 'brands/blockscout' as const,
-      iconSize: '18px',
-      text: 'All chains',
-      url: 'https://www.blockscout.com/chains-and-projects',
-    },
-    {
-      icon: 'donate' as const,
-      iconSize: '20px',
-      text: 'Donate',
-      url: 'https://github.com/sponsors/blockscout',
-    },
+
   ];
 
   const frontendLink = (() => {
@@ -116,41 +103,27 @@ const Footer = () => {
   }, []);
 
   const renderProjectInfo = React.useCallback((gridArea?: GridProps['gridArea']) => {
-    const logoColor = { base: 'blue.600', _dark: 'white' };
+    // const logoColor = { base: 'blue.600', _dark: 'white' };
 
     return (
       <Box gridArea={ gridArea }>
-        <Flex columnGap={ 2 } textStyle="xs" alignItems="center">
-          <span>Made with</span>
-          <Link href="https://www.blockscout.com" target="_blank" display="inline-flex" color={ logoColor } _hover={{ color: logoColor }}>
-            <IconSvg
-              name="networks/logo-placeholder"
-              width="80px"
-              height={ 4 }
-            />
-          </Link>
+        <Flex columnGap={ 2 } fontSize="xs" lineHeight={ 5 } alignItems="center" color="text">
+
+          <span style={{ fontSize: '16px' }}>Powered by IRTA Smart Chain (L1)</span>
+
         </Flex>
         <Text mt={ 3 } fontSize="xs">
-          Blockscout is a tool for inspecting and analyzing EVM based blockchains. Blockchain explorer for Ethereum Networks.
+          Inertia is a next-generation blockchain explorer built for Ethereum and EVM-compatible networks, offering a clear, real-time window into the decentralized world. Whether you're tracking transactions or exploring smart contracts, Inertia turns complex blockchain data into a beautifully simple experience.
         </Text>
-        <Box mt={ 6 } alignItems="start" textStyle="xs">
-          { apiVersionUrl && (
-            <Text>
-              Backend: <Link href={ apiVersionUrl } target="_blank">{ backendVersionData?.backend_version }</Link>
-            </Text>
-          ) }
-          { frontendLink && (
-            <Text>
-              Frontend: { frontendLink }
-            </Text>
-          ) }
+        <Box mt={ 6 } alignItems="start" fontSize="xs" lineHeight={ 5 }>
+
           <Text>
-            Copyright { copy } Blockscout Limited 2023-{ (new Date()).getFullYear() }
+            Copyright { copy } Inertia Limited 2023-{ (new Date()).getFullYear() }
           </Text>
         </Box>
       </Box>
     );
-  }, [ apiVersionUrl, backendVersionData?.backend_version, frontendLink ]);
+  }, [ frontendLink ]);
 
   const containerProps: HTMLChakraProps<'div'> = {
     as: 'footer',
