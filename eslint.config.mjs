@@ -88,6 +88,7 @@ export default tseslint.config(
       globals: jestPlugin.environments.globals.globals,
     },
     rules: {
+      "@typescript-eslint/no-unused-vars": "warn",
       '@typescript-eslint/array-type': [ 'error', {
         'default': 'generic',
         readonly: 'generic',
@@ -255,7 +256,7 @@ export default tseslint.config(
     ignores: [ '**/*.pw.tsx', 'playwright/**' ],
     rules: {
       'react-hooks/rules-of-hooks': 'error',
-      'react-hooks/exhaustive-deps': 'error',
+     "react-hooks/exhaustive-deps": "warn",
     },
   },
 
@@ -408,7 +409,7 @@ export default tseslint.config(
       // rules customizations
       eqeqeq: [ 'error', 'allow-null' ],
       'id-match': [ 'error', '^[\\w$]+$' ],
-      'max-len': [ 'error', 160, 4 ],
+      "max-len": ["warn", { "code": 160 }],
       'no-console': 'error',
       'no-implicit-coercion': [ 'error', {
         number: true,

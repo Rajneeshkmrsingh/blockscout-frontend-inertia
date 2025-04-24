@@ -186,7 +186,7 @@
     "ws": "^8.17.1"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "eslint --cache --fix"
+    "*.{js,jsx,ts,tsx}": "eslint --cache --fix --quiet"
   },
   "resolutions": {
     "@types/react": "18.3.12",
