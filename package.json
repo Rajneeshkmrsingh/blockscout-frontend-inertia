@@ -185,9 +185,9 @@
     "vite-tsconfig-paths": "4.3.2",
     "ws": "^8.17.1"
   },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "eslint --cache --fix --quiet"
-  },
+"lint-staged": {
+  "*.{js,jsx,ts,tsx}": ["eslint --cache --fix --quiet", "git add"]
+},
   "resolutions": {
     "@types/react": "18.3.12",
     "@types/react-dom": "18.3.1"
