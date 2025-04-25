@@ -64,7 +64,7 @@ const NetworkLogo = ({ isCollapsed, onClick, className }: Props) => {
         fallback={ <LogoFallback isCollapsed={ isCollapsed }/> }
         display={{ base: 'block', lg: isCollapsed === false ? 'block' : 'none', xl: isCollapsed ? 'none' : 'block' }}
         filter={{ _dark: !config.UI.navigation.logo.dark ? INVERT_FILTER : undefined }}
-        objectFit="contain"
+        objectFit="cover"
         objectPosition="left"
       />
       { /* small logo */ }
@@ -76,7 +76,7 @@ const NetworkLogo = ({ isCollapsed, onClick, className }: Props) => {
         fallback={ <LogoFallback isCollapsed={ isCollapsed } isSmall/> }
         display={{ base: 'none', lg: isCollapsed === false ? 'none' : 'block', xl: isCollapsed ? 'block' : 'none' }}
         filter={{ _dark: !config.UI.navigation.icon.dark ? INVERT_FILTER : undefined }}
-        objectFit="contain"
+        objectFit="cover"
         objectPosition="left"
       />
     </chakra.a>
