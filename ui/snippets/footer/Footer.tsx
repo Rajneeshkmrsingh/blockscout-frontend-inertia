@@ -109,7 +109,7 @@ const Footer = () => {
       <Box gridArea={ gridArea }>
         <Flex columnGap={ 2 } fontSize="xs" lineHeight={ 5 } alignItems="center" color="text">
 
-          <span style={{ fontSize: '16px' }}>Powered by IRTA Smart Chain (L1)</span>
+          <span style={{ fontSize: '16px' }}>Powered by Inertia Smart Chain</span>
 
         </Flex>
         <Text mt={ 3 } fontSize="xs">
